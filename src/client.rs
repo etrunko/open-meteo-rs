@@ -1,12 +1,19 @@
 use std::time::Duration;
 
+/// cbindgen:ignore
 const DEFAULT_FORECAST_ENDPOINT: &str = "https://api.open-meteo.com/v1/";
+/// cbindgen:ignore
 const DEFAULT_ARCHIVE_ENDPOINT: &str = "https://archive-api.open-meteo.com/v1/";
+/// cbindgen:ignore
 const DEFAULT_GEOCODING_ENDPOINT: &str = "https://geocoding-api.open-meteo.com/v1/search";
+/// cbindgen:ignore
 const DEFAULT_AIR_QUALITY_ENDPOINT: &str = "https://air-quality-api.open-meteo.com/v1/air-quality";
 
+/// cbindgen:ignore
 const DEFAULT_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"),);
+/// cbindgen:ignore
 const DEFAULT_TIMEOUT: Duration = Duration::from_millis(5000);
+/// cbindgen:ignore
 const DEFAULT_CONNECT_TIMEOUT: Duration = Duration::from_millis(2000);
 
 #[derive(Debug)]
