@@ -8,6 +8,7 @@ mod location;
 pub mod air_quality;
 pub mod forecast;
 pub mod geocoding;
+pub mod ffi;
 
 pub use client::*;
 pub use errors::*;
