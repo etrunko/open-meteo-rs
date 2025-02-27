@@ -19,6 +19,8 @@ includes = []
 
 [export.rename]
 "Client" = "open_meteo_client_t"
+"Location" = "open_meteo_location_t"
+"Options" = "open_meteo_options_t"
 
 [enum]
 rename_variants = "QualifiedScreamingSnakeCase"
