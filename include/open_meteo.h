@@ -13,6 +13,8 @@
 
 typedef struct open_meteo_client_t open_meteo_client_t;
 
+typedef struct open_meteo_forecast_result_t open_meteo_forecast_result_t;
+
 typedef struct open_meteo_options_t open_meteo_options_t;
 
 #ifdef __cplusplus
@@ -30,6 +32,9 @@ void open_meteo_forecast_options_free(struct open_meteo_options_t *opts);
 void open_meteo_forecast_options_set_location(struct open_meteo_options_t *opts,
                                               double lat,
                                               double lng);
+
+const struct open_meteo_forecast_result_t *open_meteo_client_forecast(struct open_meteo_client_t *client,
+                                                                      struct open_meteo_options_t *opts);
 
 #ifdef __cplusplus
 }  // extern "C"
