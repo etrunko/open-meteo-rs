@@ -34,3 +34,10 @@ assets = [
     { source="target/release/libopen_meteo_rs.so", dest="/usr/lib/", mode="755" },
     { source="include/open_meteo.h", dest="/usr/include/", mode="644" },
 ]
+
+[package.metadata.generate-rpm]
+license = "MIT"
+assets = [
+    { source="target/release/libopen_meteo_rs.so", dest="/usr/lib/", mode="755" },
+    { source="include/open_meteo.h", dest="/usr/include/", mode="644" },
+]
