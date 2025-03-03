@@ -1,4 +1,5 @@
 use tokio::runtime;
+use std::ffi;
 
 use crate::Client;
 use crate::Location;
@@ -37,13 +38,14 @@ pub extern "C" fn open_meteo_forecast_options_set_location(opts: &mut Options, l
 }
 
 #[no_mangle]
-pub extern "C" fn open_meteo_client_forecast(client: &mut Client, opts: *mut Options) -> *const ForecastResult {
+pub extern "C" fn open_meteo_client_forecast(client: &mut Client, opts: *mut Options) -> *const ffi::c_char {
     let runtime = runtime::Runtime::new().unwrap();
     let result = runtime.block_on(async {
         match client.forecast(unsafe {*Box::from_raw(opts)}).await {
-            Ok(res) => Box::into_raw(Box::new(res)),
-            Err(_) => std::ptr::null(),
+            Ok(res) => res,
+            Err(_) => ForecastResult::default(),
         }
     });
-    result
+
+    ffi::CString::new(format!("{:#?}", result)).unwrap().into_raw()
 }
