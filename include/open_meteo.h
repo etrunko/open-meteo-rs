@@ -29,8 +29,8 @@ void open_meteo_forecast_options_set_location(struct open_meteo_options_t *optio
                                               double lat,
                                               double lng);
 
-const char *open_meteo_client_forecast(struct open_meteo_client_t *client,
-                                       struct open_meteo_options_t *opts);
+char *open_meteo_client_forecast(struct open_meteo_client_t *client,
+                                 struct open_meteo_options_t *opts);
 
 #ifdef __cplusplus
 }  // extern "C"
